@@ -1,0 +1,145 @@
+/* Default CSS */
+/* Adding the logo animation to the logo id */
+#logo {
+    animation-name: logoa;
+    animation-duration: 5s;
+}
+
+/* Create the logo animation with keyframes */
+@keyframes logoa {
+    from {width: 25px; opacity: 0;}
+    to {width: 475px; opacity: 1;}
+  }
+
+/* Making the fonts and background image */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-image: url("../images/concrete_seamless.png");
+    background-color: #f1f1f1;
+}
+
+/* Creating the header flex display and using column wrap */
+header {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+/* The nav links require a column wrap for the default display */
+.nav_links {
+    display: flex;
+    flex-flow: column wrap;
+}
+
+/* Ensuring the color stays even when link is clicked */
+.nav_item a, .nav_item a:visited {
+    color: #0000FF;
+}
+
+/* Using the > selector to style only the headers that are children of cards */
+.card > header {
+    background: #288088;
+    border: solid 2px #45ADAD;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+}
+
+/* Styling the size and border radius of the cards */
+.card {
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    flex-basis: 450px;
+
+}
+
+/* Using a row wrap flex box for the pricing and gallery classes */
+.pricing {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: stretch;
+
+}
+
+.gallery {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.gallery img {
+    border:  solid 10px #50C7C7;
+    margin: 10px;
+    width: 300px;
+}
+
+/* media query for large screen size */
+@media screen and (min-width: 900px){
+    /* Changes mostly to the flex flows of elements */
+    header {
+        flex-flow: row nowrap;
+        justify-content: space-between;
+    }
+
+    .nav_links {
+        flex-flow: row nowrap;
+    }
+
+    .card {
+        flex-basis: 275px;
+    }
+
+    body > header {
+        position: sticky; top: 0;
+    }
+}
+
+/* media query for reduced motion */
+@media screen and (prefers-reduced-motion: reduce){
+    #logo {
+        animation: none;
+    }
+}
+
+/* media query for printing mode */
+@media print{
+    /* Changes to the flex flows of elements and removing parts */
+    body {
+        font-family: Arial, Helvetica;
+        background-image: none; 
+    }
+
+    nav {
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+    }
+
+    .nav_links {
+        flex-flow: row nowrap;
+        align-items: flex-start;
+        justify-content: space-around;
+        width: 100%;
+    }
+
+    .pricing {
+        flex-flow: row nowrap;
+        align-items: flex-end;
+    }
+
+    .card {
+        border: solid 2px #45ADDD;
+        flex-basis: 325px;
+    }
+
+    h2 {
+        display: none;
+    }
+
+    .gallery {
+        display: none;
+    }
+}
